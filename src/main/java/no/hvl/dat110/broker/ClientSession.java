@@ -14,7 +14,6 @@ public class ClientSession {
 	public ClientSession(String user, Connection connection) {
 		this.user = user;
 		this.connection = connection;
-
 	}
 
 	public void disconnect() {
