@@ -155,8 +155,11 @@ public class Dispatcher extends Stopable {
 		String message = msg.getMessage();
 		String user = msg.getUser();
 
+		if (sub == null || sub.isEmpty()) {
+			return;
+		}
 		for (String s : sub) {
-			ClientSession session = storage.getSession(user);
+			ClientSession session = storage.getSession(s);
 			if (session != null) {
 				PublishMsg pubMsg = new PublishMsg(user,topic,message);
 				session.send(pubMsg);
